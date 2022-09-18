@@ -1,0 +1,19 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+table{
+    margin: 0 auto;
+    width:500px;
+    height: 200px;
+    border-collapse:collapse ;  
+    border: 1px solid #dee2e6; 
+}
+td{
+    border-collapse:collapse ;
+    border: 1px solid #dee2e6;
+    padding-left: 10px;
+}
+thead td{
+    height: 50px;
+}
