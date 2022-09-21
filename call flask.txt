@@ -1,1 +1,3 @@
 call "C:\Users\MK\Desktop\AXSOS\Python_stack\my_environments\py3Env\Scripts\activate"
+
+dojo_survey> python manage.py startapp app1
