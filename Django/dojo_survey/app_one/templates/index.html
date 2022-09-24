@@ -9,7 +9,8 @@
     <title>Dojo survey index</title>
 </head>
 <body>
-    <form action="/result" method='post' >
+    <form action="result/" method='post' >
+        {% csrf_token %}
         <p>Your Name: <input type="text" name="name" class="name"></p>
         <p>Dojo Location: 
             <select name="location" class="location">
