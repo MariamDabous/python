@@ -12,7 +12,23 @@
     <h1>Welcome to the great number game!</h1>
     <p>I am thinking of a number between 1 and 100</p>
     <h2>Take a guess!</h2>
+    {{ Num }}
+    
+    {% if request.session.result == 1  %}
+    <p>Correct!</p>
+
+    {%endif%}
+    {%if request.session.result == 2 %}
+    <p>Too high</p>
+
+    {%endif%} 
+    {% if request.session.result == 3 %}
+        <p>Too low</p>
+
+    {%endif%}
+    
     <form action="guess/" method="post">
+        {% csrf_token %}
         <input type="number" name="usernumber">
         <input type="submit" value="Submit" class="submit">
     </form>
