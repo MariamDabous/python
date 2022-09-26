@@ -25,6 +25,7 @@ def root(request):
 
 #Get
 def index(request):
+    
     RandNumber=random.randint(1, 100)    #we put this here (not in the root function)to save the random before entering the enterednumber
     request.session['gussednumber'] = RandNumber
     # print(RandNum)

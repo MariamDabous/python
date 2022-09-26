@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.points{
+    width: 300px;
+    margin-left: 50px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    font-size: larger;
+    font-weight: 700;
+}
+.points p{
+    width: 120px;
+    height: 25px;
+    border:  black  solid;
+}
+.places{
+    display: flex;
+    justify-content: space-between;
+    /* background-color: aqua; */
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 50px;
+}
+form{
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid black;
+    padding: 10px;
+}
+form p{
+    font-size: larger;
+}
+.footer{
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 50px;
+}
+.activity{
+    border: 2px solid black;
+    height: 200px;
+    width: 900px;
+    /* margin-left: 50px;
+    margin-right: 50px; */
+    margin-top: 50px;
+    overflow-y: scroll;
+}

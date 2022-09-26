@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ninja Gold Game</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="points">
+        <h2>Your Gold:</h2>
+        <p>{{request.session.gold}}</p>
+    </div>
+    <div class="places">
+        <form action="/process_money" method="post">
+            {% csrf_token %}
+            <h2>Farm</h2>
+            <p>(earns 10-20 gold)</p>
+            <input type="hidden" name="which_one" value="farm">
+            <input type="submit" value="Find Gold!" name="farm">
+        </form>
+        <form action="/process_money" method="post">
+            {% csrf_token %}
+            <h2>Cave</h2>
+            <p>(earns 10-20 gold)</p>
+            <input type="hidden" name="which_one" value="cave">
+            <input type="submit" value="Find Gold!" name="cave">
+        </form>
+        <form action="/process_money" method="post">
+            {% csrf_token %}
+            <h2>House</h2>
+            <p>(earns 10-20 gold)</p>
+            <input type="hidden" name="which_one" value="house">
+            <input type="submit" value="Find Gold!" name="house">
+        </form>
+        <form action="/process_money" method="post">
+            {% csrf_token %}
+            <h2>Quest</h2>
+            <p>(earns/takes 0-50 gold)</p>
+            <input type="hidden" name="which_one" value="quest">
+            <input type="submit" value="Find Gold!" name="quest">
+        </form>
+    </div>
+    <div class="footer">
+        <h1>Activities:</h1><br><br>
+        <div class="activity">
+            {% for log in request.session.logs %}
+            <p>{{log}}</p>
+            {%endfor%}
+        </div>
+    </div>
+</body>
+</html>

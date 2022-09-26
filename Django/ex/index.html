@@ -1,0 +1,19 @@
+<form method="post" action="/process">
+        {% csrf_token %}
+        hidden<input type="hidden" name="which_form" value="register">
+        f nams<input type="text" name="first_name">
+        l name<input type="text" name="last_name">
+        email<input type="text" name="email">
+        pass<input type="password" name="password">
+        <input type="submit" value="Register">
+    </form>
+    <form method="post" action="/process">
+        {% csrf_token %}
+        hidden2<input type="hidden" name="which_form" value="login">
+        email<input type="text" name="email">
+        pass<input type="password" name="password">
+        <input type="submit" value="Login">
+    </form>
+    request.POST['which_form']='register';
+    
+    
