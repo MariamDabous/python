@@ -1,0 +1,45 @@
+Dojo.objects.create(name="axsos", city="nablus", state="Palestine")
+Dojo.objects.create(name="champions", city="Ramallah", state="Palestine")
+Dojo.objects.create(name="ace", city="Newyork", state="USA")
+
+
+
+c = Dojo.objects.get(id=1)
+c.delete()
+c = Dojo.objects.get(id=2)
+c.delete()
+c = Dojo.objects.get(id=3)
+c.delete()
+
+Dojo.objects.create(name="axsos", city="nablus", state="Palestine")
+Dojo.objects.create(name="champions", city="Ramallah", state="Palestine")
+Dojo.objects.create(name="ace", city="Newyork", state="USA")
+
+Ninja.objects.create(first_name="karam", last_name="taha",dojo=Dojo.objects.get(id=7))
+Ninja.objects.create(first_name="mayam", last_name="Dabous",dojo=Dojo.objects.get(id=7))
+Ninja.objects.create(first_name="reem", last_name="taha",dojo=Dojo.objects.get(id=7))
+
+Ninja.objects.create(first_name="ahmad", last_name="taha",dojo=Dojo.objects.get(id=8))
+Ninja.objects.create(first_name="rama", last_name="Dabous",dojo=Dojo.objects.get(id=8))
+Ninja.objects.create(first_name="sara", last_name="taha",dojo=Dojo.objects.get(id=8))
+
+
+Ninja.objects.create(first_name="rana", last_name="taha",dojo=Dojo.objects.get(id=9))
+Ninja.objects.create(first_name="maram", last_name="Dabous",dojo=Dojo.objects.get(id=9))
+Ninja.objects.create(first_name="meera", last_name="taha",dojo=Dojo.objects.get(id=9))
+
+Ninja.objects.filter(dojo=Dojo.objects.first()).values()
+
+Ninja.objects.filter(dojo=Dojo.objects.last()).values()
+
+
+Ninja.objects.last().dojo
+
+Dojo.objects.create(name="ABC", city="Florida", state="USA", desc="new dojo")
+
+
+
+
+
+
+
