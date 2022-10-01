@@ -40,7 +40,7 @@ def bookdesc(request, id):
     context= {
         "all_book" : Book.objects.get(id=id),
         "the_author" :Book.objects.get(id=id).publishers.all(),
-        "all_authors" : Author.objects.all()
+        "all_authors" : Author.objects.exclude(books=id)
     }
     return render(request, 'bookdescription.html',context)
 
@@ -58,7 +58,7 @@ def authordesc(request,id):
     context = {
         "author_desc":Author.objects.get(id=id),
         "Books_for_author":Author.objects.get(id=id).books.all(),
-        "all_book" : Book.objects.all()
+        "all_book" : Book.objects.exclude(publishers=id)
     }
     return render(request, 'authordescription.html', context)
 
