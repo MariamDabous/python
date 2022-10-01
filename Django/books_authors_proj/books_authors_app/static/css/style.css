@@ -1,0 +1,27 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.container{
+    margin: 50px auto;
+    width: 1300px;
+    display: flex;
+    justify-content: space-between;
+}
+.left{
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    justify-content: space-between;
+}
+form{
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+.desc input{
+    height: 100px;
+}

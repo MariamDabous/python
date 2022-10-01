@@ -1,0 +1,12 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.netanddate{
+    width: 400px;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+
+}

@@ -4,3 +4,13 @@ dojo_survey> python manage.py startapp app1
 
 to run the server:
 python manage.py runserver
+
+  > python manage.py makemigrations
+  > python manage.py migrate
+
+> python manage.py shell
+>>> from your_app_name_here.models import *
+
+
+
+from your_app_name_here.models import *

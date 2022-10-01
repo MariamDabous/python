@@ -1,0 +1,60 @@
+Book.objects.create(title="C Sharp")
+Book.objects.create(title="Java")
+Book.objects.create(title="Python")
+Book.objects.create(title="PHP")
+Book.objects.create(title="Ruby")
+
+Jane Austen, Emily Dickinson, Fyodor Dostoevsky, William Shakespeare, Lau Tzu
+Author.objects.create(first_name="Jane", last_name="Austen")
+Author.objects.create(first_name="Emily", last_name="Dickinson")
+Author.objects.create(first_name="Fyodor", last_name="Dostoevsky")
+Author.objects.create(first_name="William", last_name="Shakespeare")
+Author.objects.create(first_name="Lau", last_name="Tzu")
+
+
+c = Book.objects.get(id=1)
+c.title ="C#"
+c.save()
+
+
+c=Author.objects.get(id=4)
+c.first_name ="Bill"
+c.save
+
+first_author=Author.objects.get(id=1)
+first_author.books.add(Book.objects.get(id=1))
+first_author.books.add(Book.objects.get(id=2))
+
+
+second_author=Author.objects.get(id=2)
+second_author.books.add(Book.objects.get(id=1))
+second_author.books.add(Book.objects.get(id=2))
+second_author.books.add(Book.objects.get(id=3))
+
+third_author=Author.objects.get(id=3)
+third_author.books.add(Book.objects.get(id=1))
+third_author.books.add(Book.objects.get(id=2))
+third_author.books.add(Book.objects.get(id=3))
+third_author.books.add(Book.objects.get(id=4))
+
+forth_author=Author.objects.get(id=4)
+forth_author.books.add(Book.objects.get(id=1))
+forth_author.books.add(Book.objects.get(id=2))
+forth_author.books.add(Book.objects.get(id=3))
+forth_author.books.add(Book.objects.get(id=4))
+forth_author.books.add(Book.objects.get(id=5))
+
+Book.objects.get(id=3).publishers.all()
+
+Book.objects.get(id=3).publishers.remove((Book.objects.get(id=3)).authors.first())
+
+second_book=Book.objects.get(id=2)
+second_book.publishers.add(Author.objects.get(id=5))
+
+
+
+Author.objects.get(id=3).books.all()
+
+Book.objects.get(id=5).publishers.all()
+
+
