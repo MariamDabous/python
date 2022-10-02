@@ -2,6 +2,7 @@ from turtle import title
 from django.shortcuts import render
 from django.shortcuts import render, HttpResponse,redirect
 from .models import TVshow
+from django.contrib import messages
 
 def index(request):
     context ={
@@ -22,6 +23,12 @@ def index3(request,id5):
     return render(request, 'read(one).html', context)
 
 def create(request):
+    information= request.POST
+    errors=TVshow.objects.basic_validator(information)
+    if len(errors) > 0:
+        for key, val in errors.items():
+            messages.error(request,val)
+        return redirect('/shows/new')
     title1= request.POST['title']
     net1= request.POST['net']
     date1= request.POST['date']

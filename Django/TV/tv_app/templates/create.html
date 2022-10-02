@@ -9,6 +9,9 @@
     <title>Create</title>
 </head>
 <body>
+    {% for message in messages %}
+    <p style="color: red;">{{message}}</p>
+    {% endfor %}
     <form action="/create" method="post">
         {% csrf_token%}
         <h1>Add a new show</h1>
