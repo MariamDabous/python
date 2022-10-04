@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}"> 
+</head>
+<body>
+    <h1>Welcome {{newuser.first_name}}</h1>
+    <a href="/logout">Log Off</a><br><br><br><br>
+    <form action="/postmessage"method='post'>
+        {% csrf_token %}
+        <label>Post a message</label><br>
+        <div class="box">
+            <input type="text" name="message11"><br><br>
+        </div>
+        <input type="submit" value="Post a message">
+    </form>
+    {% for k in postmessage %}
+    <form action="/postcomment"method='post'>
+            {% csrf_token %}
+        <input type="hidden" name="which_form" value={{k.id}}>
+        <h2>{{k.user1.first_name}} {{k.user1.last_name}} - {{k.created_at}}</h2>
+        <p>{{k.message}}</p>
+        {% for comment in k.comments3.all %}
+        <h4>{{comment.user2.first_name}} {{comment.user2.last_name}} - {{comment.created_at}}</h4>
+        <p>{{comment.comment7}}</p>
+        {% endfor %}
+        <label>Post a comment</label><br>
+        <div class="box">
+            <input type="text"  name="comment11" ><br><br>
+        </div>
+        <input type="submit" value="Post a comment">
+        </form>
+        {% endfor %}
+
+</body>
+</html>

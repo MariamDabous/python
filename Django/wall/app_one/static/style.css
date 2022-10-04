@@ -1,0 +1,18 @@
+main{
+    margin: 0 auto;
+    width: 1000px;
+    height: 600px;
+    display: flex;
+}
+div{
+    flex: 1;
+}
+
+.box input{
+    width: 900px;
+    height: 60px;
+}
+label{
+    font-size: large;
+    color: blue;
+}
