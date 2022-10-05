@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favourite Books</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}"> 
+</head>
+<body>
+    <nav>
+        <h1>Welcome, {{availableuser.first_name}}!</h1>
+        <a href="/logout">Log Out</a>
+    </nav><br><br>
+    <div class="middle">
+        <div class="left">
+            {% if onebook.uploaded_by.id == availableuser.id %}
+            <form action="/newdesc" method="post">
+                {% csrf_token %}
+                <input class="title" type="text" name="title1" onfocus="this.value=''" value="{{onebook.title}}">
+                <h3>Added by: {{onebook.uploaded_by.first_name}} {{onebook.uploaded_by.last_name}}</h3>
+                <h3>Added on: {{onebook.created_at}}</h3>
+                <h3>Last updated on: {{onebook.updated_at}}</h3>
+                <h3>Description:</h3>
+                <input class="descrip" type="text" name="desc1" onfocus="this.value=''" value="{{onebook.description}}"><br>
+                <input type="submit" value="Update">
+            </form>
+            <form action="/delete" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Delete">
+            </form>
+            {% else %}
+            <h1 class="title">{{onebook.title}}</h1>
+            <h3>Added by: {{onebook.uploaded_by.first_name}} {{onebook.uploaded_by.last_name}}</h3>
+            <h3>Added on: {{onebook.created_at}}</h3>
+            <h3>Last updated on: {{onebook.updated_at}}</h3>
+            <h3>Description:{{onebook.description}}</h3>
+            {% endif %}
+
+            
+        </div>
+        <div class="right">
+            <h1>Users Who Like This Book:</h1>
+            <ul>
+                {% for likeduser in users_who_liked_one_book %}
+                {% if availableuser.id == likeduser.id %}
+                <li>{{likeduser.first_name}} {{likeduser.last_name}} <a href="/unfav" >Un-Favourite</a></li>
+                {% else %}
+                <li>{{likeduser.first_name}} {{likeduser.last_name}}</li>
+                {% endif %}
+                {% endfor %}
+                {% if availableuser not in users_who_liked_one_book %}
+                <a href="/addfavfromone/{{onebook.id}}">Add to Favourite</a>
+                {% endif %}
+
+
+            </ul>
+        </div>
+    </div>  
+</body>
+</html>

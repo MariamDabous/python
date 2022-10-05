@@ -1,0 +1,29 @@
+main{
+    margin: 0 auto;
+    width: 1000px;
+    height: 600px;
+    display: flex;
+}
+div{
+    flex: 1;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px black solid;
+}
+.middle{
+    display: flex;
+}
+.title{
+    width: 500px;
+    height: 50px;
+    font-size:xx-large;
+    font-weight: bold;
+}
+.descrip{
+    width: 400px;
+    height: 100px;
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <nav>
+        <h1>Welcome, {{newuser.first_name}}!</h1>
+        <a href="/logout">Log Out</a>
+    </nav>
+    <div class="middle">
+        <div class="left">
+            {% for message in messages %}
+            <p>{{message}}</p> 
+            {% endfor %} 
+            <h1>Add a Favourite Book</h1>
+            <form action="/addbook" method="post">
+                {% csrf_token %}
+                Title<input type="text"name="title"> <br><br>
+                Description<input type="text"name="desc"> <br><br>
+                <input type="submit" value='Add'>
+            </form>
+        </div>
+        <div class="right">
+            <h1>All Books</h1>
+            {% for book in allbook %}
+            <div class="book">
+                <a href="books/{{book.id}}" >{{book.title}}</a>
+                <p>(added by {{book.uploaded_by.first_name}} {{book.uploaded_by.last_name}})</p>
+                {% if book not in favbook %}
+                <a href="/addfav/{{book.id}}">Add to Favourite</a>
+                {%else %}
+                <p><em>this is one of your favourites</em></p>
+                {% endif %}
+                
+            </div>
+            <br><br>
+            {% endfor %}
+        </div>
+    </div>
+    
+</body>
+</html>
