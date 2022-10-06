@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.shortcuts import render, HttpResponse,redirect
 from .models import TVshow
 from django.contrib import messages
+from models import *
 
 def index(request):
     context ={
@@ -29,26 +30,22 @@ def create(request):
         for key, val in errors.items():
             messages.error(request,val)
         return redirect('/shows/new')
-    title1= request.POST['title']
-    net1= request.POST['net']
-    date1= request.POST['date']
-    desc1= request.POST['desc']
 
-    TVshow.objects.create(title=title1, network=net1, release_date=date1,description=desc1)
+    models.createTVShow(request)
     last1=  TVshow.objects.last() 
     id1=last1.id
     return redirect('/shows/'+str(id1))
 
 
+#namming functions and var should be descrptive 
 
 def index4(request,id5):
     context ={
         'edit_show' : TVshow.objects.get(id=int(id5))
     }
-
-    
     return render(request, 'edit.html', context)
 
+#This function will do ....
 def update(request,id5):
     
     edit_show = TVshow.objects.get(id=int(id5))

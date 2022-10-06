@@ -1,0 +1,29 @@
+*{
+    font-family: cursive;
+}
+main{
+    margin: 0 auto;
+    width: 1000px;
+    height: 600px;
+    display: flex;
+}
+div{
+    flex: 1;
+}
+nav{
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    width: 1500px;
+    height: 100px;
+    margin-left: 10px;
+}
+.tree{
+    margin-left: 100px;
+}
+.edittree{
+    margin-left: 50px;
+}
+.tabletree{
+    margin-left: 70px
+}

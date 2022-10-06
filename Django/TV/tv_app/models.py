@@ -20,3 +20,11 @@ class TVshow(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     objects = TVshowmanager()
 # Create your models here.
+
+
+def createTVShow(request):
+    title1= request.POST['title']
+    net1= request.POST['net']
+    date1= request.POST['date']
+    desc1= request.POST['desc']
+    TVshow.objects.create(title=title1, network=net1, release_date=date1,description=desc1)
